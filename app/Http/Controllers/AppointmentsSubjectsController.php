@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointments;
+use App\Models\AppointmentsSubjects;
 use Illuminate\Http\Request;
 
-class AppointmentsController extends Controller
+class AppointmentsSubjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class AppointmentsController extends Controller
      */
     public function index()
     {
-        $appointments = Appointments::all();
-        return response()->json($appointments);
+        //
     }
 
     /**
@@ -25,15 +24,13 @@ class AppointmentsController extends Controller
      */
     public function create(Request $request)
     {
-        $appointments = new Appointments();
+        $appointmentsSubjects = new AppointmentsSubjects();
 
-        $appointments->dateHour             = $request->dateHour;
-        $appointments->notes                = $request->notes;
+        $appointmentsSubjects->name = $request->name;
 
-        $appointments->save();
+        $appointmentsSubjects->save();
 
-        return response()->json("Rendez-vous bien enregistré!");
-
+        return response()->json("Objet du Rendez-vous enregistré");
     }
 
     /**
@@ -50,22 +47,22 @@ class AppointmentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Appointments  $appointments
+     * @param  \App\Models\AppointmentsSubjects  $appointmentsSubjects
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $appointments = Appointments::find($id);
-        return response()->json($appointments);
+        $appointmentsSubjects = AppointmentsSubjects::find($id);
+        return response()->json($appointmentsSubjects);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Appointments  $appointments
+     * @param  \App\Model\AppointmentsSubjects  $appointmentsSubjects
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appointments $appointments)
+    public function edit(AppointmentSubjects $appointmentSubjects)
     {
         //
     }
@@ -74,33 +71,31 @@ class AppointmentsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Appointments  $appointments
+     * @param  \App\Models\AppointmentsSubjects  $appointmentsSubjects
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $appointments = Appointments::find($id);
+        $appointmentsSubjects = AppointmentsSubjects::find($id);
 
-        $appointments->dateHour             = $request->dateHour;
-        $appointments->notes                = $request->notes;
+        $appointmentsSubjects->name = $request->name;
 
-        $appointments->save();
+        $appointmentsSubjects->save();
 
-        return response()->json($appointments);
-
+        return response()->json($appointmentsSubjects);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Appointments  $appointments
+     * @param  \App\Models\AppointmentsSubjects  $appointmentsSubjects
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
     {
-        $appointments = Appointments::find($id);
-        $appointments->delete();
+        $appointmentsSubjects = AppointmentsSubjects::find($id);
+        $appointmentsSubjects->delete();
 
-        return response()->json('Le rendez-vous a bien été annulé');
+        return response()->json('Veuillez saisir le motif du rendez-vous');
     }
 }

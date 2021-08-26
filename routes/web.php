@@ -33,4 +33,12 @@ $router->post('/appointments', 'AppointmentsController@create');
 $router->put('/appointments/{id}', 'AppointmentsController@update');
 $router->delete('/appointments/{id}', 'AppointmentsController@delete');
 
+// route pour la table appointmentsSubjects
+
+$router->get('appointmentsSubjects', 'AppointmentsSubjectsController@index' );
+$router->get('/appointmentsSubjects/{id}', 'AppointmentsSubjectsController@show');
+$router->post('/appointmentsSubjects', 'AppointmentsSubjectsController@create');
+$router->put('/appointmentsSubjects/{id}', 'AppointmentsSubjectsController@update');
+$router->delete('/appointmentsSubjects/{id}', 'AppointmentsSubjectsController@delete');
+
                       
