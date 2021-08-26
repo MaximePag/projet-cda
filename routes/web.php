@@ -18,10 +18,19 @@
      return $results;
 });*/
 
-
+//routes pour la table user
 $router->get('user', 'UserController@index' );
 $router->get('/user/{id}', 'UserController@show');
 $router->post('/user', 'UserController@create');
 $router->put('/user/{id}', 'UserController@update');
 $router->delete('/user/{id}', 'UserController@delete');
+
+// routes pour la table appointments
+
+$router->get('appointments', 'AppointmentsController@index' );
+$router->get('/appointments/{id}', 'AppointmentsController@show');
+$router->post('/appointments', 'AppointmentsController@create');
+$router->put('/appointments/{id}', 'AppointmentsController@update');
+$router->delete('/appointments/{id}', 'AppointmentsController@delete');
+
                       
