@@ -12,14 +12,16 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$router->get('/', function () use ($router) {
+/*$router->get('/', function () use ($router) {
     $results = app('db')->select("SELECT * FROM users");
 
      return $results;
-});
+});*/
 
-$router->get('/', function () use($router){
-    $results = app('db')->select("SELECT * FROM roles");
 
-    return $results;
-});
+$router->get('user', 'UserController@index' );
+$router->get('/user/{id}', 'UserController@show');
+$router->post('/user', 'UserController@create');
+$router->put('/user/{id}', 'UserController@update');
+$router->delete('/user/{id}', 'UserController@delete');
+                      

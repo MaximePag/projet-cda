@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return response()->json($users);
     }
 
     /**
@@ -22,9 +23,25 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = new User();
+
+        $user->firstname            = $request->firstname;
+        $user->lastname             = $request->lastname;
+        $user->phoneNumber          = $request->phoneNumber;
+        $user->mail                 = $request->mail;
+        $user->password             = $request->password;
+        $user->adress               = $request->adress;
+        $user->additionalAdress     = $request->additionalAdress;
+        $user->zipCode              = $request->zipCode;
+        $user->city                 = $request->city;
+        $user->profesionnalNumber   = $request->profesionnalNumber;
+
+        $user->save();
+
+        return response()->json("Client bien enregistré!");
+
     }
 
     /**
@@ -41,18 +58,19 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        return response()->json($user);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -64,22 +82,41 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->firstname          = $request->firstname;
+        $user->lastname           = $request->lastname;
+        $user->phoneNumber        = $request->phoneNumber;
+        $user->mail               = $request->mail;
+        $user->password           = $request->password;
+        $user->adress             = $request->adress;
+        $user->additionalAdress   = $request->additionalAdress;
+        $user->zipCode            = $request->zipCode;
+        $user->city               = $request->city;
+        $user->profesionnalNumber = $request->profesionnalNumber;
+
+        $user->save();
+
+        return response()->json($user);
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function delete($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return response()->json('Fiche client bien supprimée');
     }
 }
