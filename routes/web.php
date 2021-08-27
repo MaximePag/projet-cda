@@ -1,11 +1,5 @@
 <?php
 
-$router->get('/', function () use ($router) {
-    $results = app('db')->select("SELECT * FROM users");
-
-     return $results;
-});
-
 // route pour la table Documents
 
 $router->get('Documents', 'DocumentsController@index' );
