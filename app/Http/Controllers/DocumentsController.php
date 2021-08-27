@@ -56,7 +56,7 @@ class DocumentsController extends Controller
         return response()->json($documents);
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $documents = Documents::find($id);
         $documents->delete();
