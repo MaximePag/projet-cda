@@ -13,7 +13,7 @@ class Documents extends Model implements AuthenticatableContract, AuthorizableCo
 {
     use Authenticatable, Authorizable, HasFactory;
 
-    protected $table = 'Documents';
+    protected $table = 'g5e1D_documents';
 
     protected $fillable = [
         'id', 'title', 'path', 'uploadDate'
