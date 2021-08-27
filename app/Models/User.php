@@ -14,7 +14,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable, HasFactory;
 
-    protected $table = 'users';
+    protected $table = 'g5e1D_users';
 
 
     /**
@@ -23,7 +23,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'id', 'firstname', 'lastname', 'phoneNumber', 'registerDate', 'mail', 'adress', 'additionalAdress', 'zipCode', 'city', 'profesionnalNumber', 'created_at',
+        'id'
     ];
 
     /**
@@ -32,7 +32,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 
+         
     ];
 
    /* public function show($id){

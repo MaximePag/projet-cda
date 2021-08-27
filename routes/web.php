@@ -41,4 +41,34 @@ $router->post('/appointmentsSubjects', 'AppointmentsSubjectsController@create');
 $router->put('/appointmentsSubjects/{id}', 'AppointmentsSubjectsController@update');
 $router->delete('/appointmentsSubjects/{id}', 'AppointmentsSubjectsController@delete');
 
+// route pour la table cities
+
+$router->get('cities', 'CitiesController@index' );
+$router->get('/cities/{id}', 'CitiesController@show');
+
+// route pour la table pictures
+
+$router->get('pictures', 'PicturesController@index' );
+$router->get('/pictures/{id}', 'PicturesController@show');
+$router->post('/pictures', 'PicturesController@create');
+$router->put('/pictures/{id}', 'PicturesController@update');
+$router->delete('/pictures/{id}', 'PicturesController@delete');
+
+// route pour la table requirements
+
+$router->get('requirements', 'RequirementsController@index' );
+$router->get('/requirements/{id}', 'RequirementsController@show');
+$router->post('/requirements', 'RequirementsController@create');
+$router->put('/requirements/{id}', 'RequirementsController@update');
+$router->delete('/requirements/{id}', 'RequirementsController@delete');
+
+// route pour la table roles
+
+$router->get('roles', 'RolesController@index' );
+$router->get('/roles/{id}', 'RolesController@show');
+$router->post('/roles', 'RolesController@create');
+$router->put('/roles/{id}', 'RolesController@update');
+$router->delete('/roles/{id}', 'RolesController@delete');
+
+
                       

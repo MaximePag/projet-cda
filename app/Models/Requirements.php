@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AppointmentsSubjects extends Model
+class Requirements extends Model
 {
-    protected $table = 'g5e1D_appointmentssubjects';
+    protected $table = 'g5e1D_requirements';
 
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class AppointmentsSubjects extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'name',
+        'id', 'maxPrice', 'minPrice', 'livingArea', 'landArea', 'livingRoomArea', 'roomNumber', 'bedRoomNumber', 'bathRoomNumber', 'toiletNumber', 'floorNumber', 'garage', 'parking', 'constructionYear', 'worksToBeDone', 'note'
     ];
 
     /**

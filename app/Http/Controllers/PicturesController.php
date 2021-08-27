@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AppointmentsSubjects;
+use App\Models\Pictures;
 use Illuminate\Http\Request;
 
-class AppointmentsSubjectsController extends Controller
+class PicturesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class AppointmentsSubjectsController extends Controller
      */
     public function index()
     {
-        //
+        $picture = Pictures::all();
+        return response()->json($pictures);
     }
 
     /**
@@ -24,13 +25,13 @@ class AppointmentsSubjectsController extends Controller
      */
     public function create(Request $request)
     {
-        $appointmentsSubjects = new AppointmentsSubjects();
+        $pictures = new Pictures();
 
-        $appointmentsSubjects->name = $request->name;
+        $pictures->path            = $request->path;
 
-        $appointmentsSubjects->save();
+        $pictures->save();
 
-        return response()->json("Objet du Rendez-vous enregistré");
+        return response()->json("Image bien enregistrée!");
     }
 
     /**
@@ -47,22 +48,22 @@ class AppointmentsSubjectsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AppointmentsSubjects  $appointmentsSubjects
+     * @param  \App\Models\Pictures  $pictures
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $appointmentsSubjects = AppointmentsSubjects::find($id);
-        return response()->json($appointmentsSubjects);
+        $pictures = Pictures::find($id);
+        return response()->json($pictures);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AppointmentsSubjects  $appointmentsSubjects
+     * @param  \App\Models\Pictures  $pictures
      * @return \Illuminate\Http\Response
      */
-    public function edit(AppointmentSubjects $appointmentSubjects)
+    public function edit(Pictures $pictures)
     {
         //
     }
@@ -71,31 +72,31 @@ class AppointmentsSubjectsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AppointmentsSubjects  $appointmentsSubjects
+     * @param  \App\Models\Pictures  $pictures
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pictures $pictures)
     {
-        $appointmentsSubjects = AppointmentsSubjects::find($id);
+        $pictures = Pictures::find($id);
 
-        $appointmentsSubjects->name = $request->name;
+        $pictures->path            = $request->path;
 
-        $appointmentsSubjects->save();
+        $pictures->save();
 
-        return response()->json($appointmentsSubjects);
+        return response()->json($pictures);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AppointmentsSubjects  $appointmentsSubjects
+     * @param  \App\Models\Pictures  $pictures
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
     {
-        $appointmentsSubjects = AppointmentsSubjects::find($id);
-        $appointmentsSubjects->delete();
+        $pictures = Pictures::find($id);
+        $pictures->delete();
 
-        return response()->json('Veuillez saisir le motif du rendez-vous');
+        return response()->json('Image bien supprimée');
     }
 }
